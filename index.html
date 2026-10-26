@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bilgisayar Dünyası</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="topbar-side">
+        <button class="btn btn-white" id="btn-home" hidden><span data-icon="home"></span>Ana Menü</button>
+      </div>
+      <h1 id="title">Bilgisayar Dünyası</h1>
+      <div class="topbar-side topbar-right">
+        <span id="stat"></span>
+        <button class="btn btn-white icon-btn" id="btn-sound" aria-label="Ses aç/kapat"></button>
+        <button class="btn btn-white icon-btn" id="btn-full" aria-label="Tam ekran"><span data-icon="full"></span></button>
+      </div>
+    </header>
+
+    <main id="screens">
+      <!-- Ana menü -->
+      <section class="screen active" id="screen-menu">
+        <div class="menu-hero">
+          <p>Bitbit ile bilgisayarın parçalarını keşfet!</p>
+        </div>
+        <div class="menu-grid">
+          <button class="mode-card" data-mode="build" style="--c:#ffd9b0">
+            <span class="mode-icon" data-icon="build"></span>
+            <span class="card-title">Bilgisayarı Topla</span>
+            <span class="card-text">Parçaları kasadaki doğru yerlerine yerleştir.</span>
+            <span class="stars" data-best="build"></span>
+          </button>
+          <button class="mode-card" data-mode="match" style="--c:#ddd6ff">
+            <span class="mode-icon" data-icon="match"></span>
+            <span class="card-title">Eşleştir</span>
+            <span class="card-text">Parçanın resmini ve adını bul.</span>
+            <span class="stars" data-best="match"></span>
+          </button>
+          <button class="mode-card" data-mode="quiz" style="--c:#cfe6ff">
+            <span class="mode-icon" data-icon="quiz"></span>
+            <span class="card-title">Bilgi Yarışması</span>
+            <span class="card-text">10 soruda ne kadar bildiğini göster.</span>
+            <span class="stars" data-best="quiz"></span>
+          </button>
+          <button class="mode-card" data-mode="sort" style="--c:#c7f0df">
+            <span class="mode-icon" data-icon="sort"></span>
+            <span class="card-title">Giriş mi Çıkış mı?</span>
+            <span class="card-text">Birimleri doğru kutuya taşı.</span>
+            <span class="stars" data-best="sort"></span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Mod 1: Bilgisayarı Topla -->
+      <section class="screen" id="screen-build">
+        <div class="build-layout">
+          <div class="build-stage-wrap">
+            <div class="build-stage" id="build-stage"></div>
+          </div>
+          <div class="build-tray" id="build-tray"></div>
+        </div>
+      </section>
+
+      <!-- Mod 2: Eşleştir -->
+      <section class="screen" id="screen-match">
+        <div class="match-grid" id="match-grid"></div>
+      </section>
+
+      <!-- Mod 3: Bilgi Yarışması -->
+      <section class="screen" id="screen-quiz">
+        <div class="quiz-box" id="quiz-box"></div>
+      </section>
+
+      <!-- Mod 4: Giriş mi Çıkış mı? -->
+      <section class="screen" id="screen-sort">
+        <div class="sort-layout">
+          <button class="bin bin-in" data-drop data-type="giris">
+            <span class="bin-icon" data-icon="ioIn"></span>
+            <span class="card-title">Giriş Birimi</span>
+            <span class="card-text">Bilgisayara bilgi <b>gönderir</b>.</span>
+            <span class="bin-items"></span>
+          </button>
+          <div class="sort-center" id="sort-center"></div>
+          <button class="bin bin-out" data-drop data-type="cikis">
+            <span class="bin-icon" data-icon="ioOut"></span>
+            <span class="card-title">Çıkış Birimi</span>
+            <span class="card-text">Bilgisayardaki bilgiyi bize <b>gösterir</b> ya da <b>duyurur</b>.</span>
+            <span class="bin-items"></span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer id="helper">
+      <div id="mascot" class="happy"></div>
+      <div id="bubble"><p id="bubble-text"></p></div>
+    </footer>
+  </div>
+
+  <!-- Oyun sonu penceresi -->
+  <div id="modal" hidden>
+    <div class="modal-card">
+      <div class="modal-stars" id="modal-stars"></div>
+      <h2 id="modal-title"></h2>
+      <p id="modal-text"></p>
+      <div class="modal-buttons">
+        <button class="btn btn-mint" id="modal-replay"><span data-icon="replay"></span>Tekrar Oyna</button>
+        <button class="btn btn-white" id="modal-menu"><span data-icon="home"></span>Ana Menü</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="confetti"></div>
+
+  <!-- Dosyaya çift tıklayınca da çalışsın diye modül değil, sıradan script kullanılıyor -->
+  <script src="js/data.js"></script>
+  <script src="js/svg.js"></script>
+  <script src="js/mascot.js"></script>
+  <script src="js/drag.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/build.js"></script>
+  <script src="js/match.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/sort.js"></script>
+</body>
+</html>
